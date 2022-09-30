@@ -1,0 +1,54 @@
+USE test
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[INIT_DIM_TIME]
+AS
+BEGIN
+
+SET NOCOUNT ON;
+SET XACT_ABORT ON;
+
+-----------------------------------------------------------------------------
+
+-- Transaction begin here
+
+BEGIN TRAN;
+BEGIN TRY;
+
+
+IF EXISTS(SELECT * FROM sys.tables WHERE SCHEMA_NAME(schema_id) LIKE 'dbo' AND name like 'DIM_TIME')
+   DROP TABLE test.dbo.DIM_TIME
+
+CREATE TABLE test.dbo.DIM_TIME (
+	TIME_KEY INT NOT NULL PRIMARY KEY,
+    TIME TIME NULL,
+    MINUTE INT NULL,
+    SECOND INT NULL,
+    HOUR_24 INT NULL,
+    HOUR_12 INT NULL
+);
+
+COMMIT
+RETURN 0
+END TRY
+BEGIN CATCH
+	ROLLBACK
+	DECLARE @ERRORMESSAGE NVARCHAR(2000)
+	SELECT @ERRORMESSAGE = 'ERROR: ' + ERROR_MESSAGE()
+	RAISERROR(@ERRORMESSAGE, 16, 1)
+END CATCH
+
+-- Transaction end here
+
+END
+
+
+EXECUTE [dbo].[INIT_DIM_TIME]
+GO
+
+-- drop table dim_time

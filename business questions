@@ -1,0 +1,12 @@
+- Bài test nào là phổ biến nhất (GMAT, SAT, ACT) - được học sinh chọn để thi nhiều nhất
+- So sánh số lần được tổ chức của các cuộc thi (GMAT, SAT, ACT) theo tháng, quý, năm
+- Dạng game nào được sử dụng nhiều nhất, ít nhất
+- Dạng test nào được điểm 'correct', 'incorrect' nhiều nhất, ít nhất
+- Tháng nào diễn ra nhiều cuộc thi nhất
+- Quý nào diễn ra nhiều cuộc thi nhất
+- Năm nào diễn ra nhiều cuộc thi nhất
+- Số câu trả lời đúng, sai của từng thí sinh
+- Điểm trung bình của từng học sinh (tính theo correct và incorrect)
+- Tỉ lệ hoàn thành bài của từng thí sinh (incorrect+correct/skipped)
+- Dạng subtrack nào thì được thí sinh hoàn thành trong thời gian ngắn nhất
+- đổi giá trị outcome thành 1 giá trị nhất định
